@@ -672,11 +672,6 @@ on property:vendor.ril.cbd.svc=0
     stop lhd
     stop scd
 
-# on userdebug and eng builds, enable kgdb on the serial console
-on property:ro.debuggable=1
-    write /sys/module/kgdboc/parameters/kgdboc ttyFIQ1
-    write /sys/module/fiq_debugger/parameters/kgdb_enable 1
-
 # Touch
 on property:vendor.device.modules.ready=1
     chown system system /sys/class/spi_master/spi11/spi11.0/stm_fts_cmd
