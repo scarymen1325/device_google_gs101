@@ -15,10 +15,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-    <!-- Udfps HBM provider class name -->
-    <string name="config_udfpsHbmProviderComponent">com.android.systemui.biometrics.PixelUdfpsHbmProvider</string>
-    
+<resources> 
     <!-- Should we vibrate on an icon animation of the shelf. This should only be active if the
      vibrator is capable of subtle vibrations -->
     <bool name="config_vibrateOnIconAnimation">true</bool>

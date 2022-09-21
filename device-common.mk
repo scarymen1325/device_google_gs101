@@ -17,6 +17,7 @@
 -include vendor/google_devices/gs101/proprietary/telephony/device-vendor.mk
 include device/google/gs101/device.mk
 include device/google/gs101/tts/voice_packs.mk
+include device/google/gs101/custom_common.mk
 
 # Telephony
 PRODUCT_COPY_FILES += \

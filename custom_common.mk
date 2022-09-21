@@ -16,10 +16,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Google Assistant
 PRODUCT_PRODUCT_PROPERTIES += ro.opa.eligible_device=true
 
-# EUICC
-PRODUCT_PACKAGES += \
-    EuiccSupportPixelOverlay
-
 # Parts
 PRODUCT_PACKAGES += \
     GoogleParts
