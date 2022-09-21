@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-include device/google/gs-common/device.mk
+include device/google/gs101/gs-common/device.mk
 
 TARGET_BOARD_PLATFORM := gs101
 DEVICE_IS_64BIT_ONLY ?= $(if $(filter %_64,$(TARGET_PRODUCT)),true,false)
