@@ -1,0 +1,5 @@
+allow platform_app vendor_rild_prop:dir r_dir_perms;
+allow platform_app vendor_rild_prop:file rw_file_perms;
+allow platform_app vendor_rild_prop:property_service set;
+get_prop(platform_app, vendor_rild_prop)
+set_prop(platform_app, vendor_rild_prop)

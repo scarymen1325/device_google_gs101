@@ -23,6 +23,8 @@ ifeq ($(DEVICE_IS_64BIT_ONLY),true)
 LOCAL_64ONLY := _64
 endif
 
+DEVICE_PACKAGE_OVERLAYS += device/google/gs101/overlay-Telephony
+
 AB_OTA_POSTINSTALL_CONFIG += \
 	RUN_POSTINSTALL_system=true \
 	POSTINSTALL_PATH_system=system/bin/otapreopt_script \
@@ -255,8 +257,6 @@ endif
 
 DEVICE_MATRIX_FILE := \
 	device/google/gs101/compatibility_matrix.xml
-
-DEVICE_PACKAGE_OVERLAYS += device/google/gs101/overlay
 
 # Enforce the Product interface
 PRODUCT_PRODUCT_VNDK_VERSION := current
@@ -556,7 +556,6 @@ endif
 
 # WiFi
 PRODUCT_PACKAGES += \
-	android.hardware.wifi@1.0-service \
 	wificond \
 	libwpa_client \
 	WifiOverlay \
@@ -675,7 +674,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.use_content_detection_f
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.supports_background_blur=1
-PRODUCT_SYSTEM_PROPERTIES += ro.launcher.blur.appLaunch=0
+PRODUCT_SYSTEM_PROPERTIES += ro.launcher.blur.appLaunch=1
 
 # Must align with HAL types Dataspace
 # The data space of wide color gamut composition preference is Dataspace::DISPLAY_P3
@@ -904,10 +903,6 @@ $(call inherit-product-if-exists, vendor/samsung_slsi/telephony/$(BOARD_USES_SHA
 PRODUCT_PACKAGES += ShannonIms
 
 $(call inherit-product-if-exists, vendor/samsung_slsi/telephony/$(BOARD_USES_SHARED_VENDOR_TELEPHONY)/shannon-iwlan/device-vendor.mk)
-
-#RCS Test Messaging App
-PRODUCT_PACKAGES_DEBUG += \
-	TestRcsApp
 
 PRODUCT_PACKAGES += ShannonRcs
 
@@ -1165,9 +1160,6 @@ include device/google/gs101/telephony/user.mk
 
 # Wifi ext
 include hardware/google/pixel/wifi_ext/device.mk
-
-# Battery Stats Viewer
-PRODUCT_PACKAGES_DEBUG += BatteryStatsViewer
 
 # Install product specific framework compatibility matrix
 # (TODO: b/169535506) This includes the FCM for system_ext and product partition.
